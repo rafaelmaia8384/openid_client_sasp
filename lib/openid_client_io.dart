@@ -64,8 +64,32 @@ class Authenticator {
               request.response.statusCode = 200;
               request.response.headers.set('Content-type', 'text/html');
               request.response.writeln('<html>'
-                  '<h1>You can now close this window</h1>'
-                  '<script>window.close();</script>'
+                  '<style>'
+                  'html *'
+                  '{'
+                  '  font-family: Arial !important;'
+                  '}'
+                  '.title'
+                  '{'
+                  '  font-size: 2em !important;'
+                  '  color: #444;'
+                  '  float:left;'
+                  '}'
+                  '.center-screen {'
+                  '  display: flex;'
+                  '  justify-content: center;'
+                  '  align-items: center;'
+                  '  text-align: center;'
+                  '  min-height: 100vh;'
+                  '}'
+                  '</style>'
+                  '<body>'
+                  '<div class="center-screen">'
+                  '<div class="title">Você já pode fechar essa janela!</div>'
+                  '</div>'
+                  //Adicionar chamada pro app via browser para voltar automaticamente
+                  '<script>window.location.replace("sasp://open.sasp/");window.close();</script>'
+                  '</body>'
                   '</html>');
               await request.response.close();
               var result = request.requestedUri.queryParameters;

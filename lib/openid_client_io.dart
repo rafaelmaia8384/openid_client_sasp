@@ -87,8 +87,7 @@ class Authenticator {
                   '<div class="center-screen">'
                   '<div class="title">Você já pode fechar essa janela!</div>'
                   '</div>'
-                  //Adicionar chamada pro app via browser para voltar automaticamente
-                  '<script>window.location.replace("sasp://open.sasp/");window.close();</script>'
+                  '<script>window.close();</script>'
                   '</body>'
                   '</html>');
               await request.response.close();
